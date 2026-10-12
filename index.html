@@ -35,6 +35,27 @@ h1 span{display:block;color:var(--gold)}
 .game b .ar{font-size:24px;margin-inline-start:8px;color:var(--c)}
 .game span{display:block;font-size:15px;color:var(--muted);line-height:1.35;margin-top:2px}
 .go{margin-inline-start:auto;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:26px;color:var(--c)}
+/* Coming-soon card: not a link, with a More button that opens the idea */
+.soon{display:block;padding:14px;border-radius:22px;border:3px dashed var(--c);background:linear-gradient(165deg,color-mix(in srgb,var(--c) 14%,var(--panel)),var(--panel))}
+.soon .row{display:flex;align-items:center;gap:14px}
+.soon .ph{width:72px;height:72px;border-radius:18px;flex:none;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 25%,var(--panel2));font-family:'Anton',sans-serif;font-size:40px;color:var(--c)}
+.soon b{display:block;font-family:'Anton','Cairo',sans-serif;font-weight:400;font-size:30px;line-height:1.05;text-transform:uppercase;letter-spacing:.02em}
+.soon b .ar{display:block;font-size:22px;color:var(--c);margin-top:2px}
+.actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+.actions .badge{margin-top:0}
+.soon .desc{display:block;font-size:15px;color:var(--muted);line-height:1.35;margin-top:2px}
+.badge{display:inline-block;margin-top:6px;background:var(--c);color:#2a0712;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:2px 10px;border-radius:20px}
+.more{flex:none;font:800 16px 'Barlow Semi Condensed',sans-serif;color:var(--c);background:transparent;border:2px solid var(--c);border-radius:30px;padding:6px 14px;cursor:pointer}
+.more:focus-visible{outline:3px solid var(--text);outline-offset:3px}
+.more[aria-expanded="true"]{background:var(--c);color:#2a0712}
+.idea{margin-top:14px;padding-top:12px;border-top:2px solid var(--line);font-size:15px;line-height:1.45}
+.idea[hidden]{display:none}
+.idea h3{margin:12px 0 4px;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:17px;color:var(--c);text-transform:uppercase;letter-spacing:.04em}
+.idea h3:first-child{margin-top:0}
+.idea p{margin:0 0 6px}
+.idea ol{margin:0;padding-inline-start:22px}
+.idea li{margin-bottom:4px}
+.idea .ar{line-height:1.6}
 footer{text-align:center;font-size:13px;color:#7a6e98;margin-top:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -56,7 +77,45 @@ footer{text-align:center;font-size:13px;color:#7a6e98;margin-top:6px}
     <div><b>Khatfa<span class="ar" lang="ar">خطفة</span></b><span>The team quiz. Pick a question and beat the clock, or the other team snatches your points. <span class="ar" lang="ar" dir="rtl">مسابقة الفرق بالعربي والإنجليزي.</span></span></div>
     <span class="go" aria-hidden="true">→</span>
   </a>
+  <section class="soon" style="--c:#ff6b8a" aria-labelledby="bas-title">
+    <div class="row">
+      <div class="ph" aria-hidden="true">?</div>
+      <div>
+        <b id="bas-title">Barra Al&#8209;Salfa<span class="ar" lang="ar">برا السالفة</span></b>
+        <span class="desc">Everyone knows the secret word except one. Find the outsider before they figure it out.</span>
+      </div>
+    </div>
+    <div class="actions">
+      <span class="badge">Coming soon</span>
+      <button class="more" type="button" aria-expanded="false" aria-controls="bas-idea">More</button>
+    </div>
+    <div class="idea" id="bas-idea" hidden>
+      <h3>The idea</h3>
+      <p>A social deduction game for 4 to 12 players on one phone. Everyone gets the same secret word, except one player who's "out of the loop" (<span class="ar" lang="ar">برا السالفة</span>) and only knows the category.</p>
+      <h3>How a round works</h3>
+      <ol>
+        <li><strong>Pass the phone.</strong> Each player taps to privately see either the word, or "You're out of the loop!"</li>
+        <li><strong>Ask around.</strong> Players take turns asking each other questions about the word. Answers should be vague enough to fool the outsider but specific enough to prove you know it.</li>
+        <li><strong>Vote.</strong> Everyone points at who they think the outsider is.</li>
+        <li><strong>Last chance.</strong> If the outsider is caught, they can still win by guessing the word from a list of options.</li>
+      </ol>
+      <h3>Planned extras</h3>
+      <p>Arabic and English word packs (food, places, football, jobs, and more), two outsiders for big groups, a round timer, and scoring across rounds.</p>
+      <p class="ar" lang="ar" dir="rtl">الكل يعرف الكلمة إلا واحد. اسألوا بعض، واكتشفوا مين برا السالفة قبل لا يعرف الكلمة!</p>
+    </div>
+  </section>
   <footer>Made for game nights with friends.</footer>
 </main>
+<script>
+document.querySelectorAll('.more').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    btn.textContent = open ? 'More' : 'Less';
+    panel.hidden = open;
+  });
+});
+</script>
 </body>
 </html>
