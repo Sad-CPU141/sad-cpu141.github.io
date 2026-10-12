@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Game Night · ليلة ألعاب</title>
-<meta name="description" content="Party games for one phone and a TV: Draft Night, Khatfa, Jeopardy-Board and Barra Al-Salfa (coming soon).">
+<meta name="description" content="Party games for one phone and a TV: Draft Night, Khatfa, Jeopardy-Board and Barra Al-Salfa.">
 <meta name="theme-color" content="#0f0c21">
 <meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="khatfa/icons/favicon.png">
@@ -35,10 +35,6 @@ h1 span{display:block;color:var(--gold)}
 .game b .ar{font-size:24px;margin-inline-start:8px;color:var(--c)}
 .game span{display:block;font-size:15px;color:var(--muted);line-height:1.35;margin-top:2px}
 .go{margin-inline-start:auto;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:26px;color:var(--c)}
-/* Coming-soon game: same link card, dashed border + badge */
-.game.soon{border-style:dashed}
-.game .ph{width:72px;height:72px;border-radius:18px;flex:none;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 25%,var(--panel2));font-family:'Anton',sans-serif;font-size:40px;color:var(--c)}
-.game .badge{display:inline-block;margin-top:6px;background:var(--c);color:#2a0712;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:2px 10px;border-radius:20px}
 footer{text-align:center;font-size:13px;color:#7a6e98;margin-top:6px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -66,9 +62,9 @@ footer{text-align:center;font-size:13px;color:#7a6e98;margin-top:6px}
     <div><b>Jeopardy-Board</b><span>The clue board. Buzz in first, find the hidden Risk It squares, and bet it all on the final clue. <span class="ar" lang="ar" dir="rtl">لوحة تلميحات بالعربي والإنجليزي: اسبق بالجواب وراهن على الأخير.</span></span></div>
     <span class="go" aria-hidden="true">→</span>
   </a>
-  <a class="game soon" href="barra-al-salfa/" style="--c:#ff6b8a">
-    <div class="ph" aria-hidden="true">?</div>
-    <div><b>Barra Al&#8209;Salfa<span class="ar" lang="ar">برا السالفة</span></b><span>Everyone knows the secret word except one. Find the outsider.</span><span class="badge">Coming soon</span></div>
+  <a class="game" href="barra-al-salfa/" style="--c:#ff6b8a">
+    <img src="barra-al-salfa/icons/icon-192.png" alt="" width="72" height="72">
+    <div><b>Barra Al&#8209;Salfa</b><span>Everyone knows the secret word except one. Find the outsider before they figure it out.</span></div>
     <span class="go" aria-hidden="true">→</span>
   </a>
   <footer>Made for game nights with friends.</footer>
